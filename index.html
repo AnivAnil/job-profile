@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anil N · Zoho · Extension · AI · SDET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* ─── Reset & Base ─── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #080d1a;
+            color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ─── Animated Background Orbs ─── */
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+            animation: floatOrb 25s infinite alternate ease-in-out;
+        }
+
+        .bg-orb--1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(59, 130, 246, 0.08);
+            top: -10%;
+            left: -10%;
+        }
+        .bg-orb--2 {
+            width: 400px;
+            height: 400px;
+            background: rgba(56, 189, 248, 0.06);
+            bottom: -15%;
+            right: -5%;
+            animation-duration: 30s;
+            animation-delay: -5s;
+        }
+        .bg-orb--3 {
+            width: 300px;
+            height: 300px;
+            background: rgba(139, 92, 246, 0.05);
+            top: 40%;
+            right: 20%;
+            animation-duration: 20s;
+            animation-delay: -10s;
+        }
+
+        @keyframes floatOrb {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(60px, -40px) scale(1.1);
+            }
+            66% {
+                transform: translate(-30px, 60px) scale(0.9);
+            }
+            100% {
+                transform: translate(20px, -20px) scale(1.05);
+            }
+        }
+
+        /* ─── Glass Container ─── */
+        .profile-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(10, 18, 34, 0.82);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 40px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        /* ─── Hero Header ─── */
+        .hero {
+            position: relative;
+            padding: 3rem 3.5rem 2.5rem 3.5rem;
+            background: linear-gradient(165deg, #0f172a 0%, #1e293b 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+            z-index: 2;
+            flex-wrap: wrap;
+        }
+
+        .avatar-ring {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            padding: 4px;
+            background: conic-gradient(from 0deg, #3b82f6, #38bdf8, #a78bfa, #3b82f6);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.25);
+            animation: spinRing 8s linear infinite;
+        }
+
+        @keyframes spinRing {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .avatar-ring .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #f8fafc;
+            border: 2px solid #0f172a;
+        }
+
+        .hero-title h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #f1f5f9 0%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge-role {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem 0.9rem;
+            margin-top: 0.4rem;
+        }
+
+        .role-tag {
+            background: rgba(59, 130, 246, 0.12);
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #bfdbfe;
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            letter-spacing: 0.02em;
+            backdrop-filter: blur(4px);
+            transition: all 0.2s;
+        }
+
+        .role-tag i {
+            margin-right: 0.4rem;
+            font-size: 0.65rem;
+            color: #60a5fa;
+        }
+
+        .role-tag:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .location {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-top: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-right {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.8rem;
+            z-index: 2;
+        }
+
+        .contact-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 0.4rem 1.2rem 0.4rem 0.8rem;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.3s;
+        }
+
+        .contact-pill i {
+            color: #3b82f6;
+            font-size: 0.9rem;
+            width: 1.4rem;
+            text-align: center;
+        }
+
+        .contact-pill a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-pill a:hover {
+            color: #ffffff;
+        }
+
+        .contact-pill:hover {
+            background: rgba(59, 130, 246, 0.08);
+            border-color: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+        }
+
+        /* ─── Body ─── */
+        .body-content {
+            padding: 2.5rem 3.5rem 3rem 3.5rem;
+        }
+
+        /* ─── Summary ─── */
+        .summary-glass {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 1.8rem 2.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            margin-bottom: 2.5rem;
+            position: relative;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(56, 189, 248, 0.02));
+        }
+
+        .summary-glass::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #3b82f6, #38bdf8, #a78bfa);
+            border-radius: 20px 0 0 20px;
+        }
+
+        .summary-glass p {
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .summary-glass strong {
+            color: #93c5fd;
+            font-weight: 600;
+        }
+
+        /* ─── FULL SIZE COVER – 3D TOOL CAROUSEL ─── */
+        .tool-carousel-section {
+            margin: 2.5rem 0 2.8rem 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Full-size cover block */
+            min-height: 620px;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+            border-radius: 40px;
+            padding: 2.5rem 0;
+            border: 1px solid rgba(59, 130, 246, 0.06);
+            box-shadow: inset 0 0 80px rgba(59, 130, 246, 0.04);
+            overflow: hidden;
+        }
+
+        .tool-carousel-section .sec-title {
+            align-self: flex-start;
+            margin-bottom: 1.2rem;
+            padding-left: 1rem;
+        }
+
+        .carousel-wrapper {
+            perspective: 1200px;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: visible;
+        }
+
+        .carousel-ring {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateRing 30s linear infinite;
+        }
+
+        .carousel-ring:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes rotateRing {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .tool-item {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 190px;
+            height: 64px;
+            margin-left: -95px;
+            margin-top: -32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 40px;
+            color: #e2e8f0;
+            font-size: 1.15rem;
+            font-weight: 600;
+            text-align: center;
+            backface-visibility: hidden;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            padding: 0 1.2rem;
+            white-space: nowrap;
+            letter-spacing: 0.01em;
+        }
+
+        .tool-item i {
+            color: #60a5fa;
+            font-size: 1.3rem;
+        }
+
+        .tool-item:hover {
+            background: rgba(59, 130, 246, 0.25);
+            border-color: #3b82f6;
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+            transform: scale(1.08) translateZ(15px);
+        }
+
+        .tool-item:nth-child(1) {
+            transform: rotateY(0deg) translateZ(420px);
+        }
+        .tool-item:nth-child(2) {
+            transform: rotateY(30deg) translateZ(420px);
+        }
+        .tool-item:nth-child(3) {
+            transform: rotateY(60deg) translateZ(420px);
+        }
+        .tool-item:nth-child(4) {
+            transform: rotateY(90deg) translateZ(420px);
+        }
+        .tool-item:nth-child(5) {
+            transform: rotateY(120deg) translateZ(420px);
+        }
+        .tool-item:nth-child(6) {
+            transform: rotateY(150deg) translateZ(420px);
+        }
+        .tool-item:nth-child(7) {
+            transform: rotateY(180deg) translateZ(420px);
+        }
+        .tool-item:nth-child(8) {
+            transform: rotateY(210deg) translateZ(420px);
+        }
+        .tool-item:nth-child(9) {
+            transform: rotateY(240deg) translateZ(420px);
+        }
+        .tool-item:nth-child(10) {
+            transform: rotateY(270deg) translateZ(420px);
+        }
+        .tool-item:nth-child(11) {
+            transform: rotateY(300deg) translateZ(420px);
+        }
+        .tool-item:nth-child(12) {
+            transform: rotateY(330deg) translateZ(420px);
+        }
+
+        .carousel-hint {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 1.2rem;
+            letter-spacing: 0.04em;
+            background: rgba(59, 130, 246, 0.04);
+            padding: 0.3rem 1.6rem;
+            border-radius: 30px;
+            border: 1px solid rgba(59, 130, 246, 0.06);
+        }
+
+        /* ─── Sections ─── */
+        .sec-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .sec-title i {
+            color: #3b82f6;
+            font-size: 1.1rem;
+            width: 1.8rem;
+            text-align: center;
+        }
+
+        .sec-divider {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            margin: 2.5rem 0 2rem 0;
+        }
+
+        /* ─── Experience ─── */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(59, 130, 246, 0.15);
+            transform: translateX(6px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .tl-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.5rem 1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .tl-company {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+
+        .tl-company .tl-loc {
+            font-weight: 400;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-left: 0.4rem;
+        }
+
+        .tl-date {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #94a3b8;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            white-space: nowrap;
+        }
+
+        .tl-role {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #93c5fd;
+            margin-bottom: 0.6rem;
+        }
+
+        .tl-bullets {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tl-bullets li {
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            padding: 0.15rem 0 0.15rem 1.6rem;
+            position: relative;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .tl-bullets li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: 700;
+        }
+
+        .tl-impact {
+            margin-top: 0.9rem;
+            padding: 0.5rem 1.2rem 0.5rem 1.6rem;
+            background: rgba(59, 130, 246, 0.06);
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #bfdbfe;
+            border-left: 3px solid #3b82f6;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tl-impact i {
+            color: #60a5fa;
+        }
+
+        /* ─── Projects ─── */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 18px;
+            padding: 1.4rem 1.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(59, 130, 246, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card .p-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #f1f5f9;
+        }
+
+        .project-card .p-stack {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #60a5fa;
+            background: rgba(59, 130, 246, 0.08);
+            display: inline-block;
+            padding: 0.1rem 0.8rem;
+            border-radius: 20px;
+            margin: 0.3rem 0 0.4rem 0;
+            border: 1px solid rgba(59, 130, 246, 0.08);
+        }
+
+        .project-card .p-desc {
+            font-size: 0.82rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* ─── Misc ─── */
+        .misc-flex {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .misc-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 1.2rem 1.4rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .misc-box .m-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-weight: 600;
+            color: #60a5fa;
+        }
+
+        .misc-box .m-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem 0.8rem;
+            margin-top: 0.4rem;
+        }
+
+        .misc-box .m-items span {
+            font-size: 0.8rem;
+            color: #e2e8f0;
+            font-weight: 400;
+        }
+
+        .misc-box .m-items .m-badge {
+            background: rgba(59, 130, 246, 0.06);
+            padding: 0.1rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.08);
+        }
+
+        .lang-tag {
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            font-weight: 400;
+        }
+        .lang-tag .lvl {
+            font-weight: 300;
+            color: #94a3b8;
+            font-size: 0.75rem;
+        }
+
+        .profile-footer {
+            margin-top: 2.8rem;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #64748b;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .profile-footer i {
+            color: #3b82f6;
+            margin: 0 0.2rem;
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 1000px) {
+            .hero {
+                padding: 2rem 2rem;
+            }
+            .body-content {
+                padding: 2rem 2rem 2.5rem 2rem;
+            }
+            .hero-title h1 {
+                font-size: 2.2rem;
+            }
+            .tool-item {
+                width: 160px;
+                height: 56px;
+                font-size: 1rem;
+                margin-left: -80px;
+                margin-top: -28px;
+            }
+            .tool-item:nth-child(1) {
+                transform: rotateY(0deg) translateZ(360px);
+            }
+            .tool-item:nth-child(2) {
+                transform: rotateY(30deg) translateZ(360px);
+            }
+            .tool-item:nth-child(3) {
+                transform: rotateY(60deg) translateZ(360px);
+            }
+            .tool-item:nth-child(4) {
+                transform: rotateY(90deg) translateZ(360px);
+            }
+            .tool-item:nth-child(5) {
+                transform: rotateY(120deg) translateZ(360px);
+            }
+            .tool-item:nth-child(6) {
+                transform: rotateY(150deg) translateZ(360px);
+            }
+            .tool-item:nth-child(7) {
+                transform: rotateY(180deg) translateZ(360px);
+            }
+            .tool-item:nth-child(8) {
+                transform: rotateY(210deg) translateZ(360px);
+            }
+            .tool-item:nth-child(9) {
+                transform: rotateY(240deg) translateZ(360px);
+            }
+            .tool-item:nth-child(10) {
+                transform: rotateY(270deg) translateZ(360px);
+            }
+            .tool-item:nth-child(11) {
+                transform: rotateY(300deg) translateZ(360px);
+            }
+            .tool-item:nth-child(12) {
+                transform: rotateY(330deg) translateZ(360px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.8rem 1.5rem;
+            }
+            .hero-left {
+                width: 100%;
+            }
+            .hero-right {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            .avatar-ring {
+                width: 80px;
+                height: 80px;
+            }
+            .avatar-ring .avatar {
+                font-size: 2rem;
+            }
+            .hero-title h1 {
+                font-size: 1.8rem;
+            }
+            .body-content {
+                padding: 1.5rem 1.2rem 2rem 1.2rem;
+            }
+            .summary-glass {
+                padding: 1.2rem 1.2rem;
+            }
+            .timeline-item {
+                padding: 1.2rem 1.2rem;
+            }
+            .tl-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            .misc-flex {
+                grid-template-columns: 1fr;
+            }
+
+            /* Large carousel on mobile */
+            .tool-carousel-section {
+                min-height: 420px;
+                padding: 1.5rem 0;
+                border-radius: 28px;
+            }
+            .carousel-wrapper {
+                height: 300px;
+                perspective: 800px;
+            }
+            .carousel-ring {
+                width: 250px;
+                height: 250px;
+            }
+            .tool-item {
+                width: 130px;
+                height: 48px;
+                font-size: 0.85rem;
+                margin-left: -65px;
+                margin-top: -24px;
+                padding: 0 0.8rem;
+                gap: 0.5rem;
+            }
+            .tool-item i {
+                font-size: 1rem;
+            }
+            .tool-item:nth-child(1) {
+                transform: rotateY(0deg) translateZ(260px);
+            }
+            .tool-item:nth-child(2) {
+                transform: rotateY(30deg) translateZ(260px);
+            }
+            .tool-item:nth-child(3) {
+                transform: rotateY(60deg) translateZ(260px);
+            }
+            .tool-item:nth-child(4) {
+                transform: rotateY(90deg) translateZ(260px);
+            }
+            .tool-item:nth-child(5) {
+                transform: rotateY(120deg) translateZ(260px);
+            }
+            .tool-item:nth-child(6) {
+                transform: rotateY(150deg) translateZ(260px);
+            }
+            .tool-item:nth-child(7) {
+                transform: rotateY(180deg) translateZ(260px);
+            }
+            .tool-item:nth-child(8) {
+                transform: rotateY(210deg) translateZ(260px);
+            }
+            .tool-item:nth-child(9) {
+                transform: rotateY(240deg) translateZ(260px);
+            }
+            .tool-item:nth-child(10) {
+                transform: rotateY(270deg) translateZ(260px);
+            }
+            .tool-item:nth-child(11) {
+                transform: rotateY(300deg) translateZ(260px);
+            }
+            .tool-item:nth-child(12) {
+                transform: rotateY(330deg) translateZ(260px);
+            }
+            .carousel-hint {
+                font-size: 0.7rem;
+                padding: 0.2rem 1.2rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: #0b1120;
+                padding: 0.2in;
+            }
+            .profile-container {
+                backdrop-filter: none;
+                border: 1px solid #1e293b;
+                box-shadow: none;
+            }
+            .bg-orb {
+                display: none;
+            }
+            .avatar-ring {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .hero {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .summary-glass {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .tl-impact {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .carousel-ring {
+                animation: none !important;
+            }
+            .tool-item:hover {
+                transform: none !important;
+            }
+            .project-card:hover,
+            .timeline-item:hover {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animated Orbs -->
+    <div class="bg-orb bg-orb--1"></div>
+    <div class="bg-orb bg-orb--2"></div>
+    <div class="bg-orb bg-orb--3"></div>
+
+    <div class="profile-container">
+
+        <!-- ===== HERO ===== -->
+        <header class="hero">
+            <div class="hero-left">
+                <div class="avatar-ring">
+                    <div class="avatar">AN</div>
+                </div>
+                <div class="hero-title">
+                    <h1>Anil N</h1>
+                    <div class="badge-role">
+                        <span class="role-tag"><i class="fas fa-cube"></i> Zoho Developer</span>
+                        <span class="role-tag"><i class="fas fa-puzzle-piece"></i> Widgets Developer</span>
+                        <span class="role-tag"><i class="fas fa-puzzle-piece"></i> Extension Developer</span>
+                        <span class="role-tag"><i class="fas fa-brain"></i> AI Developer</span>
+                        <span class="role-tag"><i class="fas fa-flask"></i> SDET / QA Automation</span>
+                    </div>
+                    <div class="location">
+                        <i class="fas fa-map-pin" style="color:#60a5fa;"></i> Chennai, Tamil Nadu, India
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="contact-pill">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+919514391536">+91 95143 91536</a>
+                </div>
+                <div class="contact-pill">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:anilsouth65@gmail.com">anilsouth65@gmail.com</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== BODY ===== -->
+        <div class="body-content">
+
+            <!-- SUMMARY -->
+            <div class="summary-glass">
+                <p>
+                    <strong>6+ years</strong> of full-stack development &amp; testing expertise, now expanded to
+                    <strong>Extension Development</strong> for Chrome &amp; Firefox. Proven track record building
+                    <strong>Zoho Creator/CRM</strong> solutions, interactive <strong>widgets</strong>, AI-powered
+                    <strong>automation tools</strong>, and enterprise-grade <strong>QA frameworks</strong>.
+                    Passionate about bridging development, AI, and quality engineering to deliver next-gen digital solutions.
+                </p>
+            </div>
+
+            <!-- ===== FULL-SIZE 3D TOOL CAROUSEL ===== -->
+            <div class="tool-carousel-section">
+                <div class="sec-title"><i class="fas fa-sync-alt"></i> My Tech Stack · Rotating</div>
+                <div class="carousel-wrapper">
+                    <div class="carousel-ring">
+                        <div class="tool-item"><i class="fab fa-google"></i> Zoho</div>
+                        <div class="tool-item"><i class="fas fa-code"></i> Widgets</div>
+                        <div class="tool-item"><i class="fas fa-puzzle-piece"></i> Extensions</div>
+                        <div class="tool-item"><i class="fas fa-robot"></i> AI/ML</div>
+                        <div class="tool-item"><i class="fas fa-flask"></i> Selenium</div>
+                        <div class="tool-item"><i class="fab fa-java"></i> Java</div>
+                        <div class="tool-item"><i class="fas fa-vial"></i> TestNG</div>
+                        <div class="tool-item"><i class="fas fa-cucumber"></i> Cucumber</div>
+                        <div class="tool-item"><i class="fas fa-code-branch"></i> REST Assured</div>
+                        <div class="tool-item"><i class="fas fa-paper-plane"></i> Postman</div>
+                        <div class="tool-item"><i class="fas fa-database"></i> SQL</div>
+                        <div class="tool-item"><i class="fas fa-cogs"></i> Jenkins</div>
+                    </div>
+                </div>
+                <div class="carousel-hint">
+                    <i class="fas fa-mouse-pointer"></i> Hover to pause the cycle
+                </div>
+            </div>
+
+            <!-- ===== EXPERIENCE ===== -->
+            <div>
+                <div class="sec-title"><i class="fas fa-briefcase"></i> Professional Journey</div>
+                <div class="timeline">
+
+                    <!-- Dotsquares (Latest) -->
+                    <div class="timeline-item">
+                        <div class="tl-header">
+                            <div class="tl-company">
+                                Dotsquares <span class="tl-loc">| Chennai</span>
+                            </div>
+                            <div class="tl-date">Jun 2024 – Jun 2026</div>
+                        </div>
+                        <div class="tl-role">Zoho Developer · Extension &amp; AI Engineer · SDET</div>
+                        <ul class="tl-bullets">
+                            <li>Architected <strong>10+ Zoho Creator/CRM</strong> applications with custom dashboards, automation workflows, and role-based access control.</li>
+                            <li>Developed <strong>Chrome &amp; Firefox extensions</strong> that integrate Zoho CRM with external APIs (Google Workspace, Slack), boosting data sync efficiency by 60%.</li>
+                            <li>Built reusable <strong>Zoho Widgets</strong> (HTML/CSS/JS) for real-time visual analytics, dynamic form rendering, and embedded third-party data visualizations.</li>
+                            <li>Integrated <strong>OpenAI &amp; custom NLP models</strong> into Zoho to auto-classify leads, predict sales trends, and generate intelligent responses.</li>
+                            <li>Designed and maintained a <strong>hybrid QA automation framework</strong> (Selenium, Java, TestNG, Cucumber) achieving 95% regression coverage across all Zoho modules.</li>
+                            <li>Performed comprehensive API testing using <strong>REST Assured</strong> and Postman, validating microservices and third-party integrations.</li>
+                            <li>Executed database validation with <strong>SQL</strong> to ensure data integrity and consistency across Zoho CRM and external systems.</li>
+                        </ul>
+                        <div class="tl-impact">
+                            <i class="fas fa-rocket"></i> Delivered 30% faster client onboarding through reusable extensions, AI-assisted data enrichment, and automated testing pipelines.
+                        </div>
+                    </div>
+
+                    <!-- Trivecta -->
+                    <div class="timeline-item">
+                        <div class="tl-header">
+                            <div class="tl-company">
+                                Trivecta Digital Solutions Pvt Ltd <span class="tl-loc">| Chennai</span>
+                            </div>
+                            <div class="tl-date">Apr 2023 – Jun 2024</div>
+                        </div>
+                        <div class="tl-role">QA Automation Engineer</div>
+                        <ul class="tl-bullets">
+                            <li>Developed and maintained automation frameworks using <strong>Selenium WebDriver</strong>, Java, TestNG, and <strong>Cucumber BDD</strong>.</li>
+                            <li>Implemented <strong>Page Object Model (POM)</strong> architecture for scalable and maintainable test suites.</li>
+                            <li>Automated regression test cases, reducing manual testing effort by ~40%.</li>
+                            <li>Performed cross-browser testing (Chrome, Firefox, Edge) and API testing with <strong>Postman</strong> &amp; <strong>REST Assured</strong>.</li>
+                            <li>Executed performance testing using <strong>Apache JMeter</strong> to identify system bottlenecks.</li>
+                        </ul>
+                        <div class="tl-impact">
+                            <i class="fas fa-rocket"></i> Reduced regression cycle time by 35% through framework enhancements and CI/CD integration.
+                        </div>
+                    </div>
+
+                    <!-- Global Software -->
+                    <div class="timeline-item">
+                        <div class="tl-header">
+                            <div class="tl-company">
+                                Global Software <span class="tl-loc">| Chennai</span>
+                            </div>
+                            <div class="tl-date">May 2020 – Mar 2023</div>
+                        </div>
+                        <div class="tl-role">QA Engineer</div>
+                        <ul class="tl-bullets">
+                            <li>Designed and executed test cases based on business requirement documents.</li>
+                            <li>Performed functional, integration, system, and regression testing.</li>
+                            <li>Validated backend data using <strong>SQL queries</strong> (joins, CRUD operations).</li>
+                            <li>Tested role-based access control and workflow-based applications.</li>
+                            <li>Collaborated with developers for bug verification and release stability.</li>
+                        </ul>
+                        <div class="tl-impact">
+                            <i class="fas fa-rocket"></i> Improved defect detection efficiency through structured test coverage and rigorous validation.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr class="sec-divider" />
+
+            <!-- ===== PROJECTS ===== -->
+            <div>
+                <div class="sec-title"><i class="fas fa-project-diagram"></i> Featured Projects</div>
+                <div class="project-grid">
+
+                    <div class="project-card">
+                        <div class="p-title">Zoho Extension Suite</div>
+                        <div class="p-stack">Chrome · Firefox · Zoho API · JS</div>
+                        <div class="p-desc">
+                            Built a suite of browser extensions that sync Zoho CRM with Google Workspace and Slack, automating lead capture and team notifications.
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="p-title">AI-Powered Widgets</div>
+                        <div class="p-stack">Zoho · OpenAI · HTML/CSS/JS</div>
+                        <div class="p-desc">
+                            Created intelligent widgets for Zoho Creator that use AI to generate dynamic forms, smart suggestions, and predictive data visualizations.
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="p-title">ERP Automation Framework</div>
+                        <div class="p-stack">Selenium · REST Assured · SQL · Jenkins</div>
+                        <div class="p-desc">
+                            End-to-end automation framework for an enterprise ERP system, covering UI, API, and database layers with CI/CD triggers.
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="p-title">AI-Driven Testing Assistant</div>
+                        <div class="p-stack">Python · OpenAI · Selenium · TestNG</div>
+                        <div class="p-desc">
+                            Developed an AI-powered test case generator and defect prediction tool that reduces manual effort by 50% and accelerates release cycles.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr class="sec-divider" />
+
+            <!-- ===== CERTIFICATIONS + SOFT SKILLS + LANGUAGES ===== -->
+            <div>
+                <div class="misc-flex">
+
+                    <div class="misc-box">
+                        <div class="m-label"><i class="fas fa-certificate" style="margin-right:0.3rem;"></i> Certifications</div>
+                        <div class="m-items">
+                            <span class="m-badge">Zoho Creator Developer</span>
+                            <span class="m-badge">Java with Selenium</span>
+                            <span class="m-badge">AI/ML Foundation</span>
+                        </div>
+                    </div>
+
+                    <div class="misc-box">
+                        <div class="m-label"><i class="fas fa-lightbulb" style="margin-right:0.3rem;"></i> Soft Skills</div>
+                        <div class="m-items">
+                            <span>Problem Solving</span>
+                            <span>Analytical Thinking</span>
+                            <span>Root Cause Analysis</span>
+                            <span>Communication</span>
+                            <span>Team Collaboration</span>
+                            <span>Adaptability</span>
+                        </div>
+                    </div>
+
+                    <div class="misc-box">
+                        <div class="m-label"><i class="fas fa-language" style="margin-right:0.3rem;"></i> Languages</div>
+                        <div class="m-items" style="flex-direction:column; gap:0.2rem;">
+                            <span class="lang-tag">Tamil <span class="lvl">(Fluent)</span></span>
+                            <span class="lang-tag">Telugu <span class="lvl">(Fluent)</span></span>
+                            <span class="lang-tag">English <span class="lvl">(Professional)</span></span>
+                            <span class="lang-tag">Hindi <span class="lvl">(Conversational)</span></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="profile-footer">
+                <i class="fas fa-crown"></i> Zoho · Extensions · Widgets · AI · SDET
+                <span style="margin:0 0.5rem;">|</span> <i class="fas fa-calendar-alt"></i> Updated June 2026
+            </div>
+
+        </div>
+        <!-- /body-content -->
+    </div>
+    <!-- /profile-container -->
+
+</body>
+</html>
