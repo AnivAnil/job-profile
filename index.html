@@ -3,1128 +3,653 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anil N · Zoho · Extension · AI · SDET</title>
+    <title>Anil N · Professional Resume</title>
+    <!-- Bootstrap 5 + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
     <style>
-        /* ─── Reset & Base ─── */
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
+        /* ─── Root ─── */
+        :root {
+            --text-dark: #0b1a33;
+            --text-body: #1e293b;
+            --text-muted: #475569;
+            --accent: #2563eb;
+            --bg-light: #f8fafc;
+            --border-light: #e2e8f0;
+        }
+
+        * {
             box-sizing: border-box;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #080d1a;
-            color: #e2e8f0;
+            background: #eef2f6;
+            color: var(--text-body);
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 1.5rem;
-            overflow-x: hidden;
-            position: relative;
         }
 
-        /* ─── Animated Background Orbs ─── */
-        .bg-orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-            z-index: 0;
-            animation: floatOrb 25s infinite alternate ease-in-out;
-        }
-
-        .bg-orb--1 {
-            width: 500px;
-            height: 500px;
-            background: rgba(59, 130, 246, 0.08);
-            top: -10%;
-            left: -10%;
-        }
-        .bg-orb--2 {
-            width: 400px;
-            height: 400px;
-            background: rgba(56, 189, 248, 0.06);
-            bottom: -15%;
-            right: -5%;
-            animation-duration: 30s;
-            animation-delay: -5s;
-        }
-        .bg-orb--3 {
-            width: 300px;
-            height: 300px;
-            background: rgba(139, 92, 246, 0.05);
-            top: 40%;
-            right: 20%;
-            animation-duration: 20s;
-            animation-delay: -10s;
-        }
-
-        @keyframes floatOrb {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(60px, -40px) scale(1.1);
-            }
-            66% {
-                transform: translate(-30px, 60px) scale(0.9);
-            }
-            100% {
-                transform: translate(20px, -20px) scale(1.05);
-            }
-        }
-
-        /* ─── Glass Container ─── */
-        .profile-container {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
+        /* ─── Resume Container ─── */
+        .resume-container {
+            max-width: 1000px;
             width: 100%;
-            background: rgba(10, 18, 34, 0.82);
-            backdrop-filter: blur(22px);
-            -webkit-backdrop-filter: blur(22px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 40px;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            overflow: hidden;
-        }
-
-        /* ─── Hero Header ─── */
-        .hero {
-            position: relative;
-            padding: 3rem 3.5rem 2.5rem 3.5rem;
-            background: linear-gradient(165deg, #0f172a 0%, #1e293b 100%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-        }
-
-        .hero-left {
-            display: flex;
-            align-items: center;
-            gap: 1.8rem;
-            z-index: 2;
-            flex-wrap: wrap;
-        }
-
-        .avatar-ring {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            padding: 4px;
-            background: conic-gradient(from 0deg, #3b82f6, #38bdf8, #a78bfa, #3b82f6);
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.25);
-            animation: spinRing 8s linear infinite;
-        }
-
-        @keyframes spinRing {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .avatar-ring .avatar {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: #0f172a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.6rem;
-            font-weight: 700;
-            color: #f8fafc;
-            border: 2px solid #0f172a;
-        }
-
-        .hero-title h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-            background: linear-gradient(135deg, #f1f5f9 0%, #93c5fd 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .badge-role {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.6rem 0.9rem;
-            margin-top: 0.4rem;
-        }
-
-        .role-tag {
-            background: rgba(59, 130, 246, 0.12);
-            padding: 0.2rem 1.2rem;
-            border-radius: 40px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #bfdbfe;
-            border: 1px solid rgba(59, 130, 246, 0.15);
-            letter-spacing: 0.02em;
-            backdrop-filter: blur(4px);
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            padding: 2rem 2.2rem;
             transition: all 0.2s;
         }
 
-        .role-tag i {
-            margin-right: 0.4rem;
-            font-size: 0.65rem;
-            color: #60a5fa;
+        /* ─── Header ─── */
+        .resume-header {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
-        .role-tag:hover {
-            background: rgba(59, 130, 246, 0.2);
-            transform: translateY(-2px);
+        .resume-header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.02em;
+            margin: 0;
+            line-height: 1.1;
         }
 
-        .location {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            margin-top: 0.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .resume-header .title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin: 0;
         }
 
-        .hero-right {
+        .contact-bar {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem 1.8rem;
-            z-index: 2;
+            gap: 0.6rem 1.2rem;
+            margin-top: 0.2rem;
         }
 
-        .contact-pill {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            color: #cbd5e1;
-            font-size: 0.85rem;
-            background: rgba(255, 255, 255, 0.04);
-            padding: 0.4rem 1.2rem 0.4rem 0.8rem;
-            border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            transition: all 0.3s;
-        }
-
-        .contact-pill i {
-            color: #3b82f6;
-            font-size: 0.9rem;
-            width: 1.4rem;
-            text-align: center;
-        }
-
-        .contact-pill a {
-            color: #e2e8f0;
+        .contact-bar a,
+        .contact-bar span {
+            color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.2s;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
-        .contact-pill a:hover {
-            color: #ffffff;
+        .contact-bar a:hover {
+            color: var(--accent);
         }
 
-        .contact-pill:hover {
-            background: rgba(59, 130, 246, 0.08);
-            border-color: rgba(59, 130, 246, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+        .contact-bar i {
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
-        /* ─── Body ─── */
-        .body-content {
-            padding: 2.5rem 3.5rem 3rem 3.5rem;
+        .download-btn {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 0.25rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: background 0.2s;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .download-btn:hover {
+            background: #1d4ed8;
+            color: #fff;
         }
 
         /* ─── Summary ─── */
-        .summary-glass {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 20px;
-            padding: 1.8rem 2.2rem;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            margin-bottom: 2.5rem;
-            position: relative;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(56, 189, 248, 0.02));
-        }
-
-        .summary-glass::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, #3b82f6, #38bdf8, #a78bfa);
-            border-radius: 20px 0 0 20px;
-        }
-
-        .summary-glass p {
-            font-size: 0.95rem;
-            color: #e2e8f0;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        .summary-glass strong {
-            color: #93c5fd;
-            font-weight: 600;
-        }
-
-        /* ─── FULL SIZE COVER – 3D TOOL CAROUSEL ─── */
-        .tool-carousel-section {
-            margin: 2.5rem 0 2.8rem 0;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* Full-size cover block */
-            min-height: 620px;
-            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
-            border-radius: 40px;
-            padding: 2.5rem 0;
-            border: 1px solid rgba(59, 130, 246, 0.06);
-            box-shadow: inset 0 0 80px rgba(59, 130, 246, 0.04);
-            overflow: hidden;
-        }
-
-        .tool-carousel-section .sec-title {
-            align-self: flex-start;
+        .summary-section {
+            background: var(--bg-light);
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
             margin-bottom: 1.2rem;
-            padding-left: 1rem;
+            border-left: 4px solid var(--accent);
         }
 
-        .carousel-wrapper {
-            perspective: 1200px;
-            width: 100%;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: visible;
+        .summary-section p {
+            margin: 0;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: var(--text-body);
         }
 
-        .carousel-ring {
-            width: 400px;
-            height: 400px;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: rotateRing 30s linear infinite;
-        }
-
-        .carousel-ring:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes rotateRing {
-            0% {
-                transform: rotateY(0deg);
-            }
-            100% {
-                transform: rotateY(360deg);
-            }
-        }
-
-        .tool-item {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 190px;
-            height: 64px;
-            margin-left: -95px;
-            margin-top: -32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            background: rgba(59, 130, 246, 0.12);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 40px;
-            color: #e2e8f0;
-            font-size: 1.15rem;
-            font-weight: 600;
-            text-align: center;
-            backface-visibility: hidden;
-            backdrop-filter: blur(6px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-            transition: all 0.3s ease;
-            padding: 0 1.2rem;
-            white-space: nowrap;
-            letter-spacing: 0.01em;
-        }
-
-        .tool-item i {
-            color: #60a5fa;
-            font-size: 1.3rem;
-        }
-
-        .tool-item:hover {
-            background: rgba(59, 130, 246, 0.25);
-            border-color: #3b82f6;
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
-            transform: scale(1.08) translateZ(15px);
-        }
-
-        .tool-item:nth-child(1) {
-            transform: rotateY(0deg) translateZ(420px);
-        }
-        .tool-item:nth-child(2) {
-            transform: rotateY(30deg) translateZ(420px);
-        }
-        .tool-item:nth-child(3) {
-            transform: rotateY(60deg) translateZ(420px);
-        }
-        .tool-item:nth-child(4) {
-            transform: rotateY(90deg) translateZ(420px);
-        }
-        .tool-item:nth-child(5) {
-            transform: rotateY(120deg) translateZ(420px);
-        }
-        .tool-item:nth-child(6) {
-            transform: rotateY(150deg) translateZ(420px);
-        }
-        .tool-item:nth-child(7) {
-            transform: rotateY(180deg) translateZ(420px);
-        }
-        .tool-item:nth-child(8) {
-            transform: rotateY(210deg) translateZ(420px);
-        }
-        .tool-item:nth-child(9) {
-            transform: rotateY(240deg) translateZ(420px);
-        }
-        .tool-item:nth-child(10) {
-            transform: rotateY(270deg) translateZ(420px);
-        }
-        .tool-item:nth-child(11) {
-            transform: rotateY(300deg) translateZ(420px);
-        }
-        .tool-item:nth-child(12) {
-            transform: rotateY(330deg) translateZ(420px);
-        }
-
-        .carousel-hint {
-            text-align: center;
-            font-size: 0.8rem;
-            color: #64748b;
-            margin-top: 1.2rem;
-            letter-spacing: 0.04em;
-            background: rgba(59, 130, 246, 0.04);
-            padding: 0.3rem 1.6rem;
-            border-radius: 30px;
-            border: 1px solid rgba(59, 130, 246, 0.06);
-        }
-
-        /* ─── Sections ─── */
-        .sec-title {
-            font-size: 1.1rem;
+        /* ─── Section Titles ─── */
+        .section-title {
+            font-size: 0.95rem;
             font-weight: 700;
-            color: #f1f5f9;
-            margin-bottom: 1.4rem;
+            color: var(--text-dark);
+            letter-spacing: 0.02em;
+            margin: 1.2rem 0 0.5rem 0;
+            padding-bottom: 0.2rem;
+            border-bottom: 2px solid var(--border-light);
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.4rem;
         }
 
-        .sec-title i {
-            color: #3b82f6;
-            font-size: 1.1rem;
-            width: 1.8rem;
-            text-align: center;
+        .section-title i {
+            color: var(--accent);
+            font-size: 0.9rem;
         }
 
-        .sec-divider {
-            border: 0;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-            margin: 2.5rem 0 2rem 0;
-        }
-
-        /* ─── Experience ─── */
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 1.8rem;
-        }
-
-        .timeline-item {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 20px;
-            padding: 1.6rem 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .timeline-item:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(59, 130, 246, 0.15);
-            transform: translateX(6px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .tl-header {
+        /* ─── Skills Grid ─── */
+        .skill-group {
+            margin-bottom: 0.4rem;
             display: flex;
             flex-wrap: wrap;
             align-items: baseline;
+        }
+
+        .skill-group .skill-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.8rem;
+            min-width: 120px;
+        }
+
+        .skill-tags {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 0.2rem 0.4rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            padding: 0.05rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: var(--text-body);
+            font-weight: 500;
+        }
+
+        /* ─── Experience ─── */
+        .exp-item {
+            margin-bottom: 0.9rem;
+        }
+
+        .exp-header {
+            display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
-            gap: 0.5rem 1rem;
-            margin-bottom: 0.4rem;
+            align-items: baseline;
         }
 
-        .tl-company {
-            font-size: 1.2rem;
+        .exp-company {
+            font-size: 0.95rem;
             font-weight: 700;
-            color: #f1f5f9;
+            color: var(--text-dark);
         }
 
-        .tl-company .tl-loc {
+        .exp-company .loc {
             font-weight: 400;
             font-size: 0.8rem;
-            color: #94a3b8;
-            margin-left: 0.4rem;
+            color: var(--text-muted);
+            margin-left: 0.2rem;
         }
 
-        .tl-date {
-            font-size: 0.75rem;
+        .exp-date {
+            font-size: 0.7rem;
             font-weight: 500;
-            color: #94a3b8;
-            background: rgba(255, 255, 255, 0.04);
-            padding: 0.2rem 1rem;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--text-muted);
+            background: var(--bg-light);
+            padding: 0.05rem 0.8rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
             white-space: nowrap;
         }
 
-        .tl-role {
+        .exp-role {
             font-weight: 600;
-            font-size: 0.9rem;
-            color: #93c5fd;
-            margin-bottom: 0.6rem;
+            font-size: 0.82rem;
+            color: var(--accent);
+            margin: 0 0 0.1rem 0;
         }
 
-        .tl-bullets {
+        .exp-bullets {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
-        .tl-bullets li {
-            font-size: 0.88rem;
-            color: #cbd5e1;
-            padding: 0.15rem 0 0.15rem 1.6rem;
+        .exp-bullets li {
+            font-size: 0.8rem;
+            line-height: 1.5;
+            color: var(--text-body);
+            padding: 0.05rem 0 0.05rem 1.2rem;
             position: relative;
-            line-height: 1.7;
-            font-weight: 300;
         }
 
-        .tl-bullets li::before {
+        .exp-bullets li::before {
             content: '▹';
             position: absolute;
             left: 0;
-            color: #3b82f6;
+            color: var(--accent);
             font-weight: 700;
-        }
-
-        .tl-impact {
-            margin-top: 0.9rem;
-            padding: 0.5rem 1.2rem 0.5rem 1.6rem;
-            background: rgba(59, 130, 246, 0.06);
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #bfdbfe;
-            border-left: 3px solid #3b82f6;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .tl-impact i {
-            color: #60a5fa;
         }
 
         /* ─── Projects ─── */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.4rem;
+        .project-item {
+            margin-bottom: 0.3rem;
         }
 
-        .project-card {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 18px;
-            padding: 1.4rem 1.6rem;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            transition: all 0.3s;
-        }
-
-        .project-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(59, 130, 246, 0.2);
-            transform: translateY(-6px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-card .p-title {
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: #f1f5f9;
-        }
-
-        .project-card .p-stack {
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: #60a5fa;
-            background: rgba(59, 130, 246, 0.08);
-            display: inline-block;
-            padding: 0.1rem 0.8rem;
-            border-radius: 20px;
-            margin: 0.3rem 0 0.4rem 0;
-            border: 1px solid rgba(59, 130, 246, 0.08);
-        }
-
-        .project-card .p-desc {
-            font-size: 0.82rem;
-            color: #cbd5e1;
-            line-height: 1.6;
-            font-weight: 300;
-        }
-
-        /* ─── Misc ─── */
-        .misc-flex {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.2rem;
-        }
-
-        .misc-box {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 16px;
-            padding: 1.2rem 1.4rem;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-        }
-
-        .misc-box .m-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
+        .project-item .p-title {
             font-weight: 600;
-            color: #60a5fa;
+            color: var(--text-dark);
+            font-size: 0.85rem;
         }
 
-        .misc-box .m-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.3rem 0.8rem;
-            margin-top: 0.4rem;
+        .project-item .p-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-left: 1rem;
         }
 
-        .misc-box .m-items span {
+        .edu-item {
+            font-size: 0.85rem;
+        }
+        .edu-item strong {
+            color: var(--text-dark);
+        }
+        .edu-item .meta {
+            color: var(--text-muted);
             font-size: 0.8rem;
-            color: #e2e8f0;
-            font-weight: 400;
         }
 
-        .misc-box .m-items .m-badge {
-            background: rgba(59, 130, 246, 0.06);
-            padding: 0.1rem 0.9rem;
-            border-radius: 30px;
+        .cert-item {
+            display: inline-block;
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            padding: 0.05rem 0.8rem;
+            border-radius: 20px;
             font-size: 0.7rem;
             font-weight: 500;
-            color: #93c5fd;
-            border: 1px solid rgba(59, 130, 246, 0.08);
+            color: var(--text-body);
+            margin-right: 0.3rem;
+            margin-bottom: 0.2rem;
         }
 
-        .lang-tag {
-            font-size: 0.85rem;
-            color: #e2e8f0;
-            font-weight: 400;
-        }
-        .lang-tag .lvl {
-            font-weight: 300;
-            color: #94a3b8;
-            font-size: 0.75rem;
-        }
-
-        .profile-footer {
-            margin-top: 2.8rem;
+        .footer-note {
+            margin-top: 0.8rem;
+            padding-top: 0.4rem;
+            border-top: 1px solid var(--border-light);
+            font-size: 0.65rem;
+            color: var(--text-muted);
             text-align: center;
-            font-size: 0.7rem;
-            color: #64748b;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            padding-top: 1.5rem;
-            letter-spacing: 0.02em;
-        }
-
-        .profile-footer i {
-            color: #3b82f6;
-            margin: 0 0.2rem;
         }
 
         /* ─── Responsive ─── */
-        @media (max-width: 1000px) {
-            .hero {
-                padding: 2rem 2rem;
-            }
-            .body-content {
-                padding: 2rem 2rem 2.5rem 2rem;
-            }
-            .hero-title h1 {
-                font-size: 2.2rem;
-            }
-            .tool-item {
-                width: 160px;
-                height: 56px;
-                font-size: 1rem;
-                margin-left: -80px;
-                margin-top: -28px;
-            }
-            .tool-item:nth-child(1) {
-                transform: rotateY(0deg) translateZ(360px);
-            }
-            .tool-item:nth-child(2) {
-                transform: rotateY(30deg) translateZ(360px);
-            }
-            .tool-item:nth-child(3) {
-                transform: rotateY(60deg) translateZ(360px);
-            }
-            .tool-item:nth-child(4) {
-                transform: rotateY(90deg) translateZ(360px);
-            }
-            .tool-item:nth-child(5) {
-                transform: rotateY(120deg) translateZ(360px);
-            }
-            .tool-item:nth-child(6) {
-                transform: rotateY(150deg) translateZ(360px);
-            }
-            .tool-item:nth-child(7) {
-                transform: rotateY(180deg) translateZ(360px);
-            }
-            .tool-item:nth-child(8) {
-                transform: rotateY(210deg) translateZ(360px);
-            }
-            .tool-item:nth-child(9) {
-                transform: rotateY(240deg) translateZ(360px);
-            }
-            .tool-item:nth-child(10) {
-                transform: rotateY(270deg) translateZ(360px);
-            }
-            .tool-item:nth-child(11) {
-                transform: rotateY(300deg) translateZ(360px);
-            }
-            .tool-item:nth-child(12) {
-                transform: rotateY(330deg) translateZ(360px);
-            }
-        }
-
         @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1.8rem 1.5rem;
+            .resume-container {
+                padding: 1rem 1rem;
             }
-            .hero-left {
-                width: 100%;
-            }
-            .hero-right {
-                width: 100%;
-                justify-content: flex-start;
-            }
-            .avatar-ring {
-                width: 80px;
-                height: 80px;
-            }
-            .avatar-ring .avatar {
-                font-size: 2rem;
-            }
-            .hero-title h1 {
+            .resume-header h1 {
                 font-size: 1.8rem;
             }
-            .body-content {
-                padding: 1.5rem 1.2rem 2rem 1.2rem;
+            .contact-bar {
+                gap: 0.4rem 0.8rem;
             }
-            .summary-glass {
-                padding: 1.2rem 1.2rem;
-            }
-            .timeline-item {
-                padding: 1.2rem 1.2rem;
-            }
-            .tl-header {
+            .exp-header {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            .project-grid {
-                grid-template-columns: 1fr;
+            .exp-date {
+                margin-top: 0.1rem;
             }
-            .misc-flex {
-                grid-template-columns: 1fr;
+            .skill-group {
+                flex-direction: column;
+                align-items: flex-start;
             }
-
-            /* Large carousel on mobile */
-            .tool-carousel-section {
-                min-height: 420px;
-                padding: 1.5rem 0;
-                border-radius: 28px;
-            }
-            .carousel-wrapper {
-                height: 300px;
-                perspective: 800px;
-            }
-            .carousel-ring {
-                width: 250px;
-                height: 250px;
-            }
-            .tool-item {
-                width: 130px;
-                height: 48px;
-                font-size: 0.85rem;
-                margin-left: -65px;
-                margin-top: -24px;
-                padding: 0 0.8rem;
-                gap: 0.5rem;
-            }
-            .tool-item i {
-                font-size: 1rem;
-            }
-            .tool-item:nth-child(1) {
-                transform: rotateY(0deg) translateZ(260px);
-            }
-            .tool-item:nth-child(2) {
-                transform: rotateY(30deg) translateZ(260px);
-            }
-            .tool-item:nth-child(3) {
-                transform: rotateY(60deg) translateZ(260px);
-            }
-            .tool-item:nth-child(4) {
-                transform: rotateY(90deg) translateZ(260px);
-            }
-            .tool-item:nth-child(5) {
-                transform: rotateY(120deg) translateZ(260px);
-            }
-            .tool-item:nth-child(6) {
-                transform: rotateY(150deg) translateZ(260px);
-            }
-            .tool-item:nth-child(7) {
-                transform: rotateY(180deg) translateZ(260px);
-            }
-            .tool-item:nth-child(8) {
-                transform: rotateY(210deg) translateZ(260px);
-            }
-            .tool-item:nth-child(9) {
-                transform: rotateY(240deg) translateZ(260px);
-            }
-            .tool-item:nth-child(10) {
-                transform: rotateY(270deg) translateZ(260px);
-            }
-            .tool-item:nth-child(11) {
-                transform: rotateY(300deg) translateZ(260px);
-            }
-            .tool-item:nth-child(12) {
-                transform: rotateY(330deg) translateZ(260px);
-            }
-            .carousel-hint {
-                font-size: 0.7rem;
-                padding: 0.2rem 1.2rem;
+            .skill-group .skill-label {
+                min-width: auto;
+                margin-bottom: 0.1rem;
             }
         }
 
+        /* ─── Print / PDF Styles ─── */
         @media print {
             body {
-                background: #0b1120;
-                padding: 0.2in;
+                background: #fff !important;
+                padding: 0 !important;
+                margin: 0 !important;
             }
-            .profile-container {
-                backdrop-filter: none;
-                border: 1px solid #1e293b;
-                box-shadow: none;
+            .resume-container {
+                max-width: 100% !important;
+                padding: 0.1in 0.15in !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
             }
-            .bg-orb {
-                display: none;
+            .resume-header {
+                padding-bottom: 0.4rem;
+                margin-bottom: 0.4rem;
             }
-            .avatar-ring {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            .resume-header h1 {
+                font-size: 1.6rem;
             }
-            .hero {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            .resume-header .title {
+                font-size: 0.85rem;
             }
-            .summary-glass {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            .contact-bar a,
+            .contact-bar span {
+                font-size: 0.7rem;
+                gap: 0.2rem;
             }
-            .tl-impact {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            .download-btn {
+                display: none !important;
             }
-            .carousel-ring {
-                animation: none !important;
+            .summary-section {
+                padding: 0.4rem 0.8rem;
+                margin-bottom: 0.6rem;
             }
-            .tool-item:hover {
-                transform: none !important;
+            .summary-section p {
+                font-size: 0.72rem;
+                line-height: 1.4;
             }
-            .project-card:hover,
-            .timeline-item:hover {
-                transform: none !important;
+            .section-title {
+                font-size: 0.8rem;
+                margin-top: 0.6rem;
+                margin-bottom: 0.2rem;
+                padding-bottom: 0.1rem;
+            }
+            .skill-group {
+                margin-bottom: 0.2rem;
+            }
+            .skill-group .skill-label {
+                font-size: 0.7rem;
+                min-width: 90px;
+            }
+            .skill-tag {
+                font-size: 0.6rem;
+                padding: 0 0.5rem;
+            }
+            .exp-item {
+                margin-bottom: 0.4rem;
+            }
+            .exp-company {
+                font-size: 0.8rem;
+            }
+            .exp-company .loc {
+                font-size: 0.7rem;
+            }
+            .exp-date {
+                font-size: 0.6rem;
+                padding: 0 0.6rem;
+            }
+            .exp-role {
+                font-size: 0.7rem;
+                margin: 0;
+            }
+            .exp-bullets li {
+                font-size: 0.68rem;
+                line-height: 1.3;
+                padding: 0.05rem 0 0.05rem 1rem;
+            }
+            .project-item {
+                margin-bottom: 0.2rem;
+            }
+            .project-item .p-title {
+                font-size: 0.72rem;
+            }
+            .project-item .p-desc {
+                font-size: 0.65rem;
+                margin-left: 0.8rem;
+            }
+            .edu-item {
+                font-size: 0.72rem;
+            }
+            .edu-item .meta {
+                font-size: 0.68rem;
+            }
+            .cert-item {
+                font-size: 0.6rem;
+                padding: 0 0.6rem;
+            }
+            .footer-note {
+                margin-top: 0.4rem;
+                padding-top: 0.2rem;
+                font-size: 0.55rem;
+            }
+            .row {
+                gap: 0 !important;
+            }
+            .col-md-6 {
+                padding: 0 0.3rem !important;
+            }
+            .mt-2 {
+                margin-top: 0.2rem !important;
+            }
+            .mt-4 {
+                margin-top: 0.3rem !important;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Animated Orbs -->
-    <div class="bg-orb bg-orb--1"></div>
-    <div class="bg-orb bg-orb--2"></div>
-    <div class="bg-orb bg-orb--3"></div>
+    <div class="resume-container" id="resumeContent">
 
-    <div class="profile-container">
-
-        <!-- ===== HERO ===== -->
-        <header class="hero">
-            <div class="hero-left">
-                <div class="avatar-ring">
-                    <div class="avatar">AN</div>
-                </div>
-                <div class="hero-title">
+        <!-- ===== HEADER ===== -->
+        <header class="resume-header">
+            <div class="row align-items-center">
+                <div class="col-md-7">
                     <h1>Anil N</h1>
-                    <div class="badge-role">
-                        <span class="role-tag"><i class="fas fa-cube"></i> Zoho Developer</span>
-                        <span class="role-tag"><i class="fas fa-puzzle-piece"></i> Widgets Developer</span>
-                        <span class="role-tag"><i class="fas fa-puzzle-piece"></i> Extension Developer</span>
-                        <span class="role-tag"><i class="fas fa-brain"></i> AI Developer</span>
-                        <span class="role-tag"><i class="fas fa-flask"></i> SDET / QA Automation</span>
-                    </div>
-                    <div class="location">
-                        <i class="fas fa-map-pin" style="color:#60a5fa;"></i> Chennai, Tamil Nadu, India
-                    </div>
+                    <div class="title">Zoho Developer · Extension &amp; AI Engineer · SDET</div>
                 </div>
-            </div>
-            <div class="hero-right">
-                <div class="contact-pill">
-                    <i class="fas fa-phone-alt"></i>
-                    <a href="tel:+919514391536">+91 95143 91536</a>
-                </div>
-                <div class="contact-pill">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:anilsouth65@gmail.com">anilsouth65@gmail.com</a>
+                <div class="col-md-5">
+                    <div class="contact-bar justify-content-md-end">
+                        <a href="tel:+919514391536"><i class="bi bi-phone"></i> +91 95143 91536</a>
+                        <a href="mailto:anilsouth65@gmail.com"><i class="bi bi-envelope"></i> anilsouth65@gmail.com</a>
+                        <span><i class="bi bi-geo-alt"></i> Chennai, India</span>
+                        <button class="download-btn" id="downloadBtn">
+                            <i class="bi bi-download"></i> Download PDF
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>
 
-        <!-- ===== BODY ===== -->
-        <div class="body-content">
+        <!-- ===== SUMMARY ===== -->
+        <section class="summary-section">
+            <p>
+                <strong>Accomplished Zoho Developer &amp; SDET</strong> with <strong>6+ years</strong> of experience
+                in enterprise applications, browser extensions, and AI‑powered automation. Proven track record in
+                delivering scalable Zoho CRM/Creator solutions and leading QA automation strategies for global clients.
+            </p>
+        </section>
 
-            <!-- SUMMARY -->
-            <div class="summary-glass">
-                <p>
-                    <strong>6+ years</strong> of full-stack development &amp; testing expertise, now expanded to
-                    <strong>Extension Development</strong> for Chrome &amp; Firefox. Proven track record building
-                    <strong>Zoho Creator/CRM</strong> solutions, interactive <strong>widgets</strong>, AI-powered
-                    <strong>automation tools</strong>, and enterprise-grade <strong>QA frameworks</strong>.
-                    Passionate about bridging development, AI, and quality engineering to deliver next-gen digital solutions.
-                </p>
+        <!-- ===== CORE COMPETENCIES ===== -->
+        <div>
+            <div class="section-title"><i class="bi bi-layers"></i> Core Competencies</div>
+
+            <div class="skill-group">
+                <span class="skill-label">Zoho Ecosystem</span>
+                <span class="skill-tags">
+                    <span class="skill-tag">Zoho CRM</span>
+                    <span class="skill-tag">Zoho Creator</span>
+                    <span class="skill-tag">Zoho Widgets</span>
+                    <span class="skill-tag">Deluge</span>
+                    <span class="skill-tag">API Integration</span>
+                </span>
             </div>
 
-            <!-- ===== FULL-SIZE 3D TOOL CAROUSEL ===== -->
-            <div class="tool-carousel-section">
-                <div class="sec-title"><i class="fas fa-sync-alt"></i> My Tech Stack · Rotating</div>
-                <div class="carousel-wrapper">
-                    <div class="carousel-ring">
-                        <div class="tool-item"><i class="fab fa-google"></i> Zoho</div>
-                        <div class="tool-item"><i class="fas fa-code"></i> Widgets</div>
-                        <div class="tool-item"><i class="fas fa-puzzle-piece"></i> Extensions</div>
-                        <div class="tool-item"><i class="fas fa-robot"></i> AI/ML</div>
-                        <div class="tool-item"><i class="fas fa-flask"></i> Selenium</div>
-                        <div class="tool-item"><i class="fab fa-java"></i> Java</div>
-                        <div class="tool-item"><i class="fas fa-vial"></i> TestNG</div>
-                        <div class="tool-item"><i class="fas fa-cucumber"></i> Cucumber</div>
-                        <div class="tool-item"><i class="fas fa-code-branch"></i> REST Assured</div>
-                        <div class="tool-item"><i class="fas fa-paper-plane"></i> Postman</div>
-                        <div class="tool-item"><i class="fas fa-database"></i> SQL</div>
-                        <div class="tool-item"><i class="fas fa-cogs"></i> Jenkins</div>
-                    </div>
-                </div>
-                <div class="carousel-hint">
-                    <i class="fas fa-mouse-pointer"></i> Hover to pause the cycle
-                </div>
+            <div class="skill-group">
+                <span class="skill-label">Development</span>
+                <span class="skill-tags">
+                    <span class="skill-tag">Chrome/Firefox Extensions</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">OpenAI Integration</span>
+                    <span class="skill-tag">REST APIs</span>
+                </span>
             </div>
 
-            <!-- ===== EXPERIENCE ===== -->
-            <div>
-                <div class="sec-title"><i class="fas fa-briefcase"></i> Professional Journey</div>
-                <div class="timeline">
-
-                    <!-- Dotsquares (Latest) -->
-                    <div class="timeline-item">
-                        <div class="tl-header">
-                            <div class="tl-company">
-                                Dotsquares <span class="tl-loc">| Chennai</span>
-                            </div>
-                            <div class="tl-date">Jun 2024 – Jun 2026</div>
-                        </div>
-                        <div class="tl-role">Zoho Developer · Extension &amp; AI Engineer · SDET</div>
-                        <ul class="tl-bullets">
-                            <li>Architected <strong>10+ Zoho Creator/CRM</strong> applications with custom dashboards, automation workflows, and role-based access control.</li>
-                            <li>Developed <strong>Chrome &amp; Firefox extensions</strong> that integrate Zoho CRM with external APIs (Google Workspace, Slack), boosting data sync efficiency by 60%.</li>
-                            <li>Built reusable <strong>Zoho Widgets</strong> (HTML/CSS/JS) for real-time visual analytics, dynamic form rendering, and embedded third-party data visualizations.</li>
-                            <li>Integrated <strong>OpenAI &amp; custom NLP models</strong> into Zoho to auto-classify leads, predict sales trends, and generate intelligent responses.</li>
-                            <li>Designed and maintained a <strong>hybrid QA automation framework</strong> (Selenium, Java, TestNG, Cucumber) achieving 95% regression coverage across all Zoho modules.</li>
-                            <li>Performed comprehensive API testing using <strong>REST Assured</strong> and Postman, validating microservices and third-party integrations.</li>
-                            <li>Executed database validation with <strong>SQL</strong> to ensure data integrity and consistency across Zoho CRM and external systems.</li>
-                        </ul>
-                        <div class="tl-impact">
-                            <i class="fas fa-rocket"></i> Delivered 30% faster client onboarding through reusable extensions, AI-assisted data enrichment, and automated testing pipelines.
-                        </div>
-                    </div>
-
-                    <!-- Trivecta -->
-                    <div class="timeline-item">
-                        <div class="tl-header">
-                            <div class="tl-company">
-                                Trivecta Digital Solutions Pvt Ltd <span class="tl-loc">| Chennai</span>
-                            </div>
-                            <div class="tl-date">Apr 2023 – Jun 2024</div>
-                        </div>
-                        <div class="tl-role">QA Automation Engineer</div>
-                        <ul class="tl-bullets">
-                            <li>Developed and maintained automation frameworks using <strong>Selenium WebDriver</strong>, Java, TestNG, and <strong>Cucumber BDD</strong>.</li>
-                            <li>Implemented <strong>Page Object Model (POM)</strong> architecture for scalable and maintainable test suites.</li>
-                            <li>Automated regression test cases, reducing manual testing effort by ~40%.</li>
-                            <li>Performed cross-browser testing (Chrome, Firefox, Edge) and API testing with <strong>Postman</strong> &amp; <strong>REST Assured</strong>.</li>
-                            <li>Executed performance testing using <strong>Apache JMeter</strong> to identify system bottlenecks.</li>
-                        </ul>
-                        <div class="tl-impact">
-                            <i class="fas fa-rocket"></i> Reduced regression cycle time by 35% through framework enhancements and CI/CD integration.
-                        </div>
-                    </div>
-
-                    <!-- Global Software -->
-                    <div class="timeline-item">
-                        <div class="tl-header">
-                            <div class="tl-company">
-                                Global Software <span class="tl-loc">| Chennai</span>
-                            </div>
-                            <div class="tl-date">May 2020 – Mar 2023</div>
-                        </div>
-                        <div class="tl-role">QA Engineer</div>
-                        <ul class="tl-bullets">
-                            <li>Designed and executed test cases based on business requirement documents.</li>
-                            <li>Performed functional, integration, system, and regression testing.</li>
-                            <li>Validated backend data using <strong>SQL queries</strong> (joins, CRUD operations).</li>
-                            <li>Tested role-based access control and workflow-based applications.</li>
-                            <li>Collaborated with developers for bug verification and release stability.</li>
-                        </ul>
-                        <div class="tl-impact">
-                            <i class="fas fa-rocket"></i> Improved defect detection efficiency through structured test coverage and rigorous validation.
-                        </div>
-                    </div>
-
-                </div>
+            <div class="skill-group">
+                <span class="skill-label">QA &amp; Automation</span>
+                <span class="skill-tags">
+                    <span class="skill-tag">Selenium WebDriver</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">TestNG</span>
+                    <span class="skill-tag">Cucumber BDD</span>
+                    <span class="skill-tag">REST Assured</span>
+                    <span class="skill-tag">Jenkins</span>
+                    <span class="skill-tag">SQL</span>
+                </span>
             </div>
-
-            <hr class="sec-divider" />
-
-            <!-- ===== PROJECTS ===== -->
-            <div>
-                <div class="sec-title"><i class="fas fa-project-diagram"></i> Featured Projects</div>
-                <div class="project-grid">
-
-                    <div class="project-card">
-                        <div class="p-title">Zoho Extension Suite</div>
-                        <div class="p-stack">Chrome · Firefox · Zoho API · JS</div>
-                        <div class="p-desc">
-                            Built a suite of browser extensions that sync Zoho CRM with Google Workspace and Slack, automating lead capture and team notifications.
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="p-title">AI-Powered Widgets</div>
-                        <div class="p-stack">Zoho · OpenAI · HTML/CSS/JS</div>
-                        <div class="p-desc">
-                            Created intelligent widgets for Zoho Creator that use AI to generate dynamic forms, smart suggestions, and predictive data visualizations.
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="p-title">ERP Automation Framework</div>
-                        <div class="p-stack">Selenium · REST Assured · SQL · Jenkins</div>
-                        <div class="p-desc">
-                            End-to-end automation framework for an enterprise ERP system, covering UI, API, and database layers with CI/CD triggers.
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="p-title">AI-Driven Testing Assistant</div>
-                        <div class="p-stack">Python · OpenAI · Selenium · TestNG</div>
-                        <div class="p-desc">
-                            Developed an AI-powered test case generator and defect prediction tool that reduces manual effort by 50% and accelerates release cycles.
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <hr class="sec-divider" />
-
-            <!-- ===== CERTIFICATIONS + SOFT SKILLS + LANGUAGES ===== -->
-            <div>
-                <div class="misc-flex">
-
-                    <div class="misc-box">
-                        <div class="m-label"><i class="fas fa-certificate" style="margin-right:0.3rem;"></i> Certifications</div>
-                        <div class="m-items">
-                            <span class="m-badge">Zoho Creator Developer</span>
-                            <span class="m-badge">Java with Selenium</span>
-                            <span class="m-badge">AI/ML Foundation</span>
-                        </div>
-                    </div>
-
-                    <div class="misc-box">
-                        <div class="m-label"><i class="fas fa-lightbulb" style="margin-right:0.3rem;"></i> Soft Skills</div>
-                        <div class="m-items">
-                            <span>Problem Solving</span>
-                            <span>Analytical Thinking</span>
-                            <span>Root Cause Analysis</span>
-                            <span>Communication</span>
-                            <span>Team Collaboration</span>
-                            <span>Adaptability</span>
-                        </div>
-                    </div>
-
-                    <div class="misc-box">
-                        <div class="m-label"><i class="fas fa-language" style="margin-right:0.3rem;"></i> Languages</div>
-                        <div class="m-items" style="flex-direction:column; gap:0.2rem;">
-                            <span class="lang-tag">Tamil <span class="lvl">(Fluent)</span></span>
-                            <span class="lang-tag">Telugu <span class="lvl">(Fluent)</span></span>
-                            <span class="lang-tag">English <span class="lvl">(Professional)</span></span>
-                            <span class="lang-tag">Hindi <span class="lvl">(Conversational)</span></span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- FOOTER -->
-            <div class="profile-footer">
-                <i class="fas fa-crown"></i> Zoho · Extensions · Widgets · AI · SDET
-                <span style="margin:0 0.5rem;">|</span> <i class="fas fa-calendar-alt"></i> Updated June 2026
-            </div>
-
         </div>
-        <!-- /body-content -->
-    </div>
-    <!-- /profile-container -->
 
+        <!-- ===== PROFESSIONAL EXPERIENCE ===== -->
+        <div>
+            <div class="section-title"><i class="bi bi-briefcase"></i> Professional Experience</div>
+
+            <!-- Dotsquares -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-company">Dotsquares <span class="loc">| Chennai, India</span></span>
+                    <span class="exp-date">Jun 2024 – Present</span>
+                </div>
+                <div class="exp-role">Zoho Developer · Extension &amp; AI Engineer · SDET</div>
+                <ul class="exp-bullets">
+                    <li>Architected <strong>10+ Zoho Creator/CRM</strong> applications with custom dashboards and workflows, accelerating client onboarding by 30%.</li>
+                    <li>Developed <strong>Chrome/Firefox extensions</strong> integrating Zoho CRM with Google Workspace &amp; Slack, boosting sync efficiency by 60%.</li>
+                    <li>Designed a <strong>hybrid QA framework</strong> (Selenium, Java, TestNG, Cucumber) achieving 95% regression coverage.</li>
+                </ul>
+            </div>
+
+            <!-- Xponential Digital -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-company">Xponential Digital <span class="loc">| Chennai, India</span></span>
+                    <span class="exp-date">Sep 2025 – May 2026</span>
+                </div>
+                <div class="exp-role">Zoho &amp; Automation Developer</div>
+                <ul class="exp-bullets">
+                    <li>Designed custom Zoho CRM automation workflows, improving client reporting efficiency by 25%.</li>
+                    <li>Developed AI‑enhanced extensions for seamless data migration and third‑party integration.</li>
+                    <li>Delivered 5+ enterprise integrations with zero‑downtime deployments.</li>
+                </ul>
+            </div>
+
+            <!-- Trivecta -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-company">Trivecta Digital Solutions <span class="loc">| Chennai, India</span></span>
+                    <span class="exp-date">Apr 2023 – Jun 2025</span>
+                </div>
+                <div class="exp-role">QA Automation Engineer</div>
+                <ul class="exp-bullets">
+                    <li>Maintained automation frameworks using <strong>Selenium WebDriver</strong>, Java, and <strong>Cucumber BDD</strong>, reducing manual effort by 40%.</li>
+                    <li>Implemented <strong>Page Object Model (POM)</strong> to enhance scalability and maintainability.</li>
+                    <li>Reduced regression cycle time by 35% via CI/CD integration.</li>
+                </ul>
+            </div>
+
+            <!-- Global Software -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-company">Global Software <span class="loc">| Chennai, India</span></span>
+                    <span class="exp-date">May 2020 – Mar 2023</span>
+                </div>
+                <div class="exp-role">QA Engineer</div>
+                <ul class="exp-bullets">
+                    <li>Designed and executed comprehensive test cases for functional, integration, and regression testing.</li>
+                    <li>Validated backend data integrity using complex <strong>SQL queries</strong> and RBAC testing.</li>
+                    <li>Collaborated with developers for bug verification and release stability.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ===== PROJECTS ===== -->
+        <div>
+            <div class="section-title"><i class="bi bi-diagram-3"></i> Key Projects</div>
+
+            <div class="project-item">
+                <span class="p-title">Zoho Extension Suite</span>
+                <div class="p-desc">Browser extensions syncing Zoho CRM with Google Workspace and Slack.</div>
+            </div>
+
+            <div class="project-item">
+                <span class="p-title">AI‑Powered Widgets</span>
+                <div class="p-desc">Intelligent Zoho Creator widgets using OpenAI for dynamic forms and predictive visuals.</div>
+            </div>
+
+            <div class="project-item">
+                <span class="p-title">ERP Automation Framework</span>
+                <div class="p-desc">End‑to‑end framework covering UI, API, and DB layers (Selenium, REST Assured, Jenkins).</div>
+            </div>
+        </div>
+
+        <!-- ===== EDUCATION & CERTIFICATIONS ===== -->
+        <div class="row g-2 mt-1">
+            <div class="col-md-6">
+                <div class="section-title" style="margin-top:0.4rem;"><i class="bi bi-mortarboard"></i> Education</div>
+                <div class="edu-item">
+                    <strong>Bachelor of Engineering (B.E.)</strong><br />
+                    <span class="meta">Anna University, Chennai — 2020</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="section-title" style="margin-top:0.4rem;"><i class="bi bi-patch-check"></i> Certifications</div>
+                <div>
+                    <span class="cert-item">Zoho Creator Developer</span>
+                    <span class="cert-item">Java with Selenium</span>
+                    <span class="cert-item">AI/ML Foundation</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <div class="footer-note">
+            <i class="bi bi-crown" style="color:var(--accent);"></i> Zoho · Extensions · AI · SDET &nbsp;|&nbsp; <i class="bi bi-calendar3"></i> Updated June 2026
+        </div>
+
+    </div>
+    <!-- /resume-container -->
+
+    <!-- html2pdf library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const element = document.getElementById('resumeContent');
+            const opt = {
+                margin: [0.1, 0.1, 0.1, 0.1], // top, right, bottom, left
+                filename: 'Anil_N_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, letterRendering: true, useCORS: true, logging: false },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+
+            this.innerHTML = '<i class="bi bi-hourglass-split"></i> Generating...';
+            this.disabled = true;
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                this.innerHTML = '<i class="bi bi-download"></i> Download PDF';
+                this.disabled = false;
+            }).catch(() => {
+                this.innerHTML = '<i class="bi bi-download"></i> Download PDF';
+                this.disabled = false;
+                alert('Could not generate PDF. Please try again.');
+            });
+        });
+    </script>
 </body>
 </html>
